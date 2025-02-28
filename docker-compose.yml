@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  discord-bot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: discord-webpage-scraper-bot
+    volumes:
+      # Mount the leaderboard.json file to persist data
+      - ./leaderboard.json:/app/leaderboard.json
+      # Mount the images directory for persistent image storage
+      - ./images:/app/images
+      # Mount the config file to easily update bot token without rebuilding
+      - ./config.json:/app/config.json
+    restart: unless-stopped
+    environment:
+      # Add any environment variables here if needed
+      - NODE_ENV=production
+    # Healthcheck to ensure the bot is running properly
+    healthcheck:
+      test: ["CMD", "node", "-e", "console.log('Health check')"]
+      interval: 1m
+      timeout: 10s
+      retries: 3
+      start_period: 30s

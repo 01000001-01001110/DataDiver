@@ -1,0 +1,4 @@
+beautifulsoup4==4.12.2
+html2text==2020.1.16
+requests==2.31.0
+selenium==4.15.2

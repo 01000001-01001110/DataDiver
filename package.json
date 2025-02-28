@@ -1,0 +1,15 @@
+{
+  "name": "discord-bot-scraper",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Discord bot for HTML to Markdown conversion",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "discord.js": "^14.14.1",
+    "jsdom": "^22.1.0",
+    "turndown": "^7.1.2"
+  }
+}
